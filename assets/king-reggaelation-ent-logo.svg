@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">KING REGGAELATION ENT. logo</title>
+  <desc id="desc">A crown, lion-inspired crest, turntable, heartbeat line, and KING REGGAELATION ENT. wordmark.</desc>
+  <rect width="900" height="520" rx="28" fill="#ffffff"/>
+  <g fill="#05070a">
+    <path d="M146 118l42-56 42 56 58-72 58 72 42-56 42 56v52H146z"/>
+    <circle cx="188" cy="64" r="16"/>
+    <circle cx="288" cy="43" r="18"/>
+    <circle cx="388" cy="64" r="16"/>
+    <path d="M178 181c24-44 64-68 110-68s86 24 110 68c-46-26-174-26-220 0z"/>
+    <path d="M152 198c26-12 58-11 90 4-43 18-72 52-84 101-18-34-20-70-6-105z"/>
+    <path d="M424 198c-26-12-58-11-90 4 43 18 72 52 84 101 18-34 20-70 6-105z"/>
+    <path d="M212 236c30-24 122-24 152 0-19 77-56 116-76 116s-57-39-76-116z"/>
+    <path fill="#ffffff" d="M244 252c22-16 48-16 70 0-24 10-46 10-70 0zm72 0c22-16 48-16 70 0-24 10-46 10-70 0zm-37 40h18l-9 18z"/>
+    <path d="M257 330c20 22 42 22 62 0-8 34-54 34-62 0z"/>
+    <ellipse cx="288" cy="406" rx="185" ry="52" fill="none" stroke="#05070a" stroke-width="18"/>
+    <ellipse cx="288" cy="406" rx="112" ry="30" fill="none" stroke="#05070a" stroke-width="10"/>
+    <circle cx="288" cy="406" r="12"/>
+  </g>
+  <g transform="translate(430 155)">
+    <text x="0" y="0" fill="#05070a" font-family="Impact, Haettenschweiler, 'Arial Black', sans-serif" font-size="92" font-weight="900">KING</text>
+    <text x="0" y="90" fill="#05070a" font-family="Impact, Haettenschweiler, 'Arial Black', sans-serif" font-size="66" font-weight="900">REGGAELATION</text>
+    <text x="0" y="162" fill="#05070a" font-family="Impact, Haettenschweiler, 'Arial Black', sans-serif" font-size="68" font-weight="900">ENT.</text>
+    <path d="M0 232H116l20-84 24 142 24-84 34 26h236" fill="none" stroke="#2f80ff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="250" y="247" fill="#05070a" font-family="Impact, Haettenschweiler, 'Arial Black', sans-serif" font-size="30" font-weight="900">FREQUENCY OF LIFE</text>
+  </g>
+</svg>
