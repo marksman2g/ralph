@@ -3,32 +3,63 @@ const revealItems = document.querySelectorAll(".reveal");
 const form = document.querySelector("[data-quote-form]");
 const summary = document.querySelector("[data-request-summary]");
 
+let headerIsScrolled = false;
+let scrollTicking = false;
+
+const updateHeader = () => {
+  if (!header) {
+    return;
+  }
+
+  const shouldBeScrolled = window.scrollY > 10;
+  if (shouldBeScrolled !== headerIsScrolled) {
+    header.classList.toggle("is-scrolled", shouldBeScrolled);
+    headerIsScrolled = shouldBeScrolled;
+  }
+};
+
 const onScroll = () => {
-  header.classList.toggle("is-scrolled", window.scrollY > 10);
+  if (scrollTicking) {
+    return;
+  }
+
+  window.requestAnimationFrame(() => {
+    updateHeader();
+    scrollTicking = false;
+  });
+  scrollTicking = true;
 };
 
 window.addEventListener("scroll", onScroll, { passive: true });
-onScroll();
+updateHeader();
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.16 }
-);
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.16 }
+  );
 
-revealItems.forEach((item) => observer.observe(item));
+  revealItems.forEach((item) => observer.observe(item));
+} else {
+  revealItems.forEach((item) => item.classList.add("is-visible"));
+}
 
 function formValue(data, name) {
   return String(data.get(name) || "").trim();
 }
 
 function selectedServices() {
+  if (!form) {
+    return [];
+  }
+
   return [...form.querySelectorAll("input[name='services']:checked")].map((item) => item.value);
 }
 
@@ -71,8 +102,13 @@ if (form && summary) {
 
     const button = summary.querySelector("button");
     button.addEventListener("click", async () => {
-      await navigator.clipboard.writeText(requestText);
-      button.textContent = "Copied";
+      try {
+        await navigator.clipboard.writeText(requestText);
+        button.textContent = "Copied";
+      } catch {
+        button.textContent = "Select summary";
+      }
+
       setTimeout(() => {
         button.textContent = "Copy summary";
       }, 1600);

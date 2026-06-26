@@ -5,12 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>KING REGGAELATION ENT. | Sound Reinforcement & DJ Services</title>
   <meta name="description" content="KING REGGAELATION ENT. provides sound reinforcement, DJ services, and production support for weddings, graduations, seminars, festivals, and private events.">
+  <meta name="theme-color" content="#05070a">
+  <link rel="preload" href="assets/rack-processing-amplifiers.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="preload" href="assets/frequency-of-life-logo.gif" as="image" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header" data-header>
     <a class="brand-mark" href="#top" aria-label="KING REGGAELATION ENT. home">
-      <img src="assets/king-reggaelation-ent-logo.svg" alt="">
+      <img src="assets/king-reggaelation-ent-logo.svg" alt="" width="44" height="44" decoding="async">
       <span>
         <strong>KING REGGAELATION ENT.</strong>
         <small>DJ K Stubbs</small>
@@ -27,15 +30,16 @@
 
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-media" aria-hidden="true">
-        <img src="assets/rack-processing-amplifiers.png" alt="">
-      </div>
+      <picture class="hero-media" aria-hidden="true">
+        <source srcset="assets/rack-processing-amplifiers.webp" type="image/webp">
+        <img src="assets/rack-processing-amplifiers.png" alt="" width="495" height="640" fetchpriority="high" decoding="async">
+      </picture>
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="hero-content">
         <p class="eyebrow reveal">Sound reinforcement. DJ services. Production support.</p>
         <h1 id="hero-title" class="reveal">KING REGGAELATION ENT.</h1>
         <div class="frequency-logo-strip reveal" aria-label="Frequency of Life animated logo">
-          <img src="assets/frequency-of-life-logo.gif" alt="Frequency of Life">
+          <img src="assets/frequency-of-life-logo.gif" alt="Frequency of Life" width="800" height="400" loading="eager" fetchpriority="high">
         </div>
         <p class="signature-line reveal">Supporting all of your Staging, Audio, Lighting, and Musical Needs.</p>
         <p class="hero-copy reveal">Clear, controlled audio for the moments people actually came to hear. From the first microphone check to the last song, DJ K Stubbs helps your crowd feel covered.</p>
@@ -107,11 +111,17 @@
       </div>
       <div class="equipment-gallery">
         <figure class="reveal">
-          <img src="assets/rack-processing-amplifiers.png" alt="Front view of KING REGGAELATION ENT. audio processing and amplifier rack">
+          <picture>
+            <source srcset="assets/rack-processing-amplifiers.webp" type="image/webp">
+            <img src="assets/rack-processing-amplifiers.png" alt="Front view of KING REGGAELATION ENT. audio processing and amplifier rack" width="495" height="640" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Processing, amplification, and power rack</figcaption>
         </figure>
         <figure class="reveal">
-          <img src="assets/rack-patch-panel.png" alt="Rear view of KING REGGAELATION ENT. rack patch panel and power connections">
+          <picture>
+            <source srcset="assets/rack-patch-panel.webp" type="image/webp">
+            <img src="assets/rack-patch-panel.png" alt="Rear view of KING REGGAELATION ENT. rack patch panel and power connections" width="620" height="782" loading="lazy" decoding="async">
+          </picture>
           <figcaption>Patch panel and event-ready connections</figcaption>
         </figure>
       </div>
@@ -295,8 +305,8 @@
 
   <footer class="site-footer">
     <div>
-      <img src="assets/king-reggaelation-ent-logo.svg" alt="">
-      <img class="footer-frequency-logo" src="assets/frequency-of-life-logo.gif" alt="Frequency of Life">
+      <img src="assets/king-reggaelation-ent-logo.svg" alt="" width="62" height="62" loading="lazy" decoding="async">
+      <img class="footer-frequency-logo" src="assets/frequency-of-life-logo.gif" alt="Frequency of Life" width="800" height="400" loading="lazy">
       <p><strong>KING REGGAELATION ENT.</strong><br>DJ K Stubbs<br>Frequency of Life</p>
     </div>
     <div>
@@ -306,6 +316,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

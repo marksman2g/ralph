@@ -170,6 +170,10 @@ textarea {
   position: absolute;
 }
 
+.hero-media {
+  display: block;
+}
+
 .hero-media img {
   height: 100%;
   object-fit: cover;
@@ -428,6 +432,10 @@ h3 {
 
 .equipment-gallery figure {
   margin: 0;
+}
+
+.equipment-gallery picture {
+  display: block;
 }
 
 .equipment-gallery img {

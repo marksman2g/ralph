@@ -4,7 +4,7 @@
 
 - `index.html` is the finished one-page website.
 - `styles.css` and `script.js` power the layout, animation, and quote-summary form.
-- `assets/` contains the cleaned working assets used by the site and collateral.
+- `assets/` contains the cleaned working assets used by the site and collateral, including optimized WebP rack photos with PNG fallbacks.
 - `frequency-logo-preview.html` is the standalone approved Frequency of Life GIF preview.
 - `assets/frequency-of-life-logo.gif` is the approved animated Frequency of Life asset used by the website.
 - `frequency-logo-preview.gif` is the approved GIF copied from the client-provided reference.
