@@ -79,11 +79,49 @@
     .wire-hot {
       stroke: #ffe95a;
       stroke-width: 5;
-      stroke-dasharray: 34 760;
+      stroke-dasharray: 34 735;
       stroke-dashoffset: 0;
       filter: url(#hotGlow);
       opacity: 0.95;
       animation: powerTrace 8s linear infinite;
+    }
+
+    .quarter-jack {
+      filter: drop-shadow(0 0 6px rgba(255, 255, 255, .28));
+    }
+
+    .quarter-jack-main {
+      fill: #020305;
+      stroke: rgba(255, 255, 255, .16);
+      stroke-width: 1.2;
+    }
+
+    .quarter-jack-detail {
+      fill: rgba(255, 255, 255, .12);
+    }
+
+    .quarter-jack-ring {
+      stroke: rgba(255, 255, 255, .14);
+      stroke-linecap: round;
+      stroke-width: 1.5;
+    }
+
+    .jack-current {
+      fill: none;
+      stroke: #ffe95a;
+      stroke-linecap: round;
+      stroke-width: 3.2;
+      stroke-dasharray: 20 126;
+      stroke-dashoffset: 0;
+      filter: url(#hotGlow);
+      opacity: 0.85;
+      animation: jackCurrent 8s linear infinite;
+    }
+
+    .words {
+      transform-box: view-box;
+      transform-origin: 410px 205px;
+      animation: wordShake 8s cubic-bezier(.16, .9, .22, 1) infinite;
     }
 
     .word-halo {
@@ -297,12 +335,34 @@
     }
 
     @keyframes powerTrace {
-      0% { stroke-dashoffset: 725; opacity: 1; }
-      11% { stroke-dashoffset: 725; opacity: .15; }
-      58% { stroke-dashoffset: 235; opacity: .92; }
-      86% { stroke-dashoffset: -105; opacity: .95; }
-      96% { stroke-dashoffset: -210; opacity: 1; }
-      100% { stroke-dashoffset: -250; opacity: .15; }
+      0% { stroke-dashoffset: 700; opacity: 1; }
+      11% { stroke-dashoffset: 700; opacity: .15; }
+      58% { stroke-dashoffset: 240; opacity: .92; }
+      86% { stroke-dashoffset: -82; opacity: .95; }
+      96% { stroke-dashoffset: -192; opacity: 1; }
+      100% { stroke-dashoffset: -225; opacity: .15; }
+    }
+
+    @keyframes jackCurrent {
+      0%, 16% { opacity: 0; stroke-dashoffset: 128; }
+      54% { opacity: 0; stroke-dashoffset: 128; }
+      64% { opacity: .9; stroke-dashoffset: 50; }
+      78% { opacity: .76; stroke-dashoffset: -42; }
+      89% { opacity: 0; stroke-dashoffset: -86; }
+      100% { opacity: 0; stroke-dashoffset: -86; }
+    }
+
+    @keyframes wordShake {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      1.1% { transform: translate(-5px, 2px) rotate(-.35deg); }
+      2.2% { transform: translate(4px, -2px) rotate(.28deg); }
+      3.3% { transform: translate(-3px, 1px) rotate(-.2deg); }
+      4.5% { transform: translate(3px, -1px) rotate(.16deg); }
+      6.2% { transform: translate(-1.5px, .5px) rotate(-.08deg); }
+      8.8%, 92% { transform: translate(0, 0) rotate(0deg); }
+      95% { transform: translate(-1.5px, 0) rotate(-.08deg); }
+      97.2% { transform: translate(1.2px, -.5px) rotate(.06deg); }
+      100% { transform: translate(0, 0) rotate(0deg); }
     }
 
     @keyframes chargeMove {
@@ -401,8 +461,20 @@
   </g>
 
   <g class="wire" aria-hidden="true">
-    <path class="wire-base" d="M-8 205 H38 L50 58 L66 338 L82 166 L101 205 H118 H710 H808" />
-    <path class="wire-hot" d="M-8 205 H38 L50 58 L66 338 L82 166 L101 205 H118 H710 H808" />
+    <path class="wire-base" d="M-8 205 H38 L50 58 L66 338 L82 166 L101 205 H118 H690" />
+    <path class="wire-hot" d="M-8 205 H38 L50 58 L66 338 L82 166 L101 205 H118 H690" />
+  </g>
+
+  <g class="quarter-jack" aria-hidden="true">
+    <path class="jack-current" d="M688 205 H780" />
+    <rect class="quarter-jack-main" x="688" y="199" width="17" height="12" rx="2" />
+    <rect class="quarter-jack-main" x="702" y="187" width="43" height="36" rx="5" />
+    <rect class="quarter-jack-main" x="742" y="192" width="13" height="26" rx="2.5" />
+    <rect class="quarter-jack-main" x="754" y="196" width="29" height="18" rx="2.5" />
+    <path class="quarter-jack-main" d="M782 196 H791 C796 196 799 200 799 205 C799 210 796 214 791 214 H782 Z" />
+    <rect class="quarter-jack-detail" x="706" y="190" width="34" height="5" rx="2.5" />
+    <path class="quarter-jack-ring" d="M715 190 V220" />
+    <path class="quarter-jack-ring" d="M734 190 V220" />
   </g>
 
   <g class="explosion" aria-hidden="true">
