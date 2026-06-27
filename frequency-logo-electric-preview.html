@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Frequency of Life Electric Explosion Preview</title>
+  <style>
+    :root {
+      --ink: #05070a;
+      --gold: #ffd84d;
+      --line: rgba(255, 255, 255, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #070a0f;
+      color: #ffffff;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      padding: clamp(20px, 4vw, 48px);
+    }
+
+    main {
+      margin: 0 auto;
+      max-width: 1180px;
+    }
+
+    h1 {
+      font-size: clamp(32px, 6vw, 72px);
+      letter-spacing: 0;
+      line-height: 0.95;
+      margin: 0 0 12px;
+      text-transform: uppercase;
+    }
+
+    .lead {
+      color: rgba(255, 255, 255, 0.74);
+      font-size: clamp(16px, 2vw, 22px);
+      margin: 0 0 28px;
+      max-width: 820px;
+    }
+
+    .preview-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      min-height: 260px;
+      overflow: hidden;
+      padding: clamp(18px, 3vw, 30px);
+      position: relative;
+    }
+
+    .panel h2 {
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      margin: 0 0 18px;
+      text-transform: uppercase;
+    }
+
+    .logo-stage {
+      align-items: center;
+      display: flex;
+      min-height: 170px;
+    }
+
+    .logo-stage img {
+      height: auto;
+      max-height: 235px;
+      object-fit: contain;
+      width: min(100%, 800px);
+    }
+
+    .stage-dark {
+      background:
+        radial-gradient(circle at 18% 18%, rgba(47, 128, 255, 0.34), transparent 34%),
+        linear-gradient(135deg, #020305, #111827 54%, #05070a);
+    }
+
+    .stage-blue {
+      background:
+        linear-gradient(120deg, rgba(255, 216, 77, 0.15), transparent 35%),
+        linear-gradient(135deg, #081632, #0b3a86);
+    }
+
+    .stage-photo {
+      background:
+        linear-gradient(rgba(5, 7, 10, 0.64), rgba(5, 7, 10, 0.72)),
+        url("assets/rack-processing-amplifiers.webp") center / cover;
+    }
+
+    .stage-checker {
+      background:
+        linear-gradient(45deg, rgba(255,255,255,0.18) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255,255,255,0.18) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.18) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.18) 75%),
+        #20242d;
+      background-position: 0 0, 0 12px, 12px -12px, -12px 0;
+      background-size: 24px 24px;
+    }
+
+    .meta {
+      color: rgba(255, 255, 255, 0.64);
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 22px;
+    }
+
+    .meta div {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .meta strong {
+      color: var(--gold);
+      display: block;
+      font-size: 12px;
+      margin-bottom: 3px;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 760px) {
+      .preview-grid,
+      .meta {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Electric Explosion Test</h1>
+    <p class="lead">This version is rebuilt as a transparent animated SVG: blue audio wire, electric charge, rainbow waveform explosion, and a fizzle that flashes through the Frequency of Life word shape.</p>
+
+    <section class="preview-grid" aria-label="Frequency of Life electric explosion previews">
+      <article class="panel stage-dark">
+        <h2>Dark stage</h2>
+        <div class="logo-stage">
+          <img src="assets/frequency-of-life-logo-electric-explosion.svg" alt="Frequency of Life electric explosion animated logo">
+        </div>
+      </article>
+
+      <article class="panel stage-blue">
+        <h2>Blue brand field</h2>
+        <div class="logo-stage">
+          <img src="assets/frequency-of-life-logo-electric-explosion.svg" alt="Frequency of Life electric explosion animated logo">
+        </div>
+      </article>
+
+      <article class="panel stage-photo">
+        <h2>Equipment/photo background</h2>
+        <div class="logo-stage">
+          <img src="assets/frequency-of-life-logo-electric-explosion.svg" alt="Frequency of Life electric explosion animated logo">
+        </div>
+      </article>
+
+      <article class="panel stage-checker">
+        <h2>Transparency checker</h2>
+        <div class="logo-stage">
+          <img src="assets/frequency-of-life-logo-electric-explosion.svg" alt="Frequency of Life electric explosion animated logo">
+        </div>
+      </article>
+    </section>
+
+    <section class="meta" aria-label="Export details">
+      <div>
+        <strong>Preferred</strong>
+        <span>Transparent animated SVG</span>
+      </div>
+      <div>
+        <strong>Fallback</strong>
+        <span>Previous return-burst GIF remains available</span>
+      </div>
+      <div>
+        <strong>Style</strong>
+        <span>Rainbow waveform explosion with electric fizzle</span>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

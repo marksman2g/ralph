@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" role="img" aria-labelledby="title desc">
+  <title id="title">Frequency of Life electric explosion logo animation</title>
+  <desc id="desc">A transparent animated Frequency of Life logo with a blue audio wire, electric charge, rainbow waveform explosion, and fizzling particles.</desc>
+  <defs>
+    <filter id="blueGlow" x="-25%" y="-80%" width="150%" height="260%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.05 0 0 0 0 0.33 0 0 0 0 1 0 0 0 0.9 0" result="blue" />
+      <feMerge>
+        <feMergeNode in="blue" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="hotGlow" x="-40%" y="-120%" width="180%" height="340%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0.9 0 1 0 0 0.45 0 0 1 0 0 0 0 0 1 0" result="hot" />
+      <feMerge>
+        <feMergeNode in="hot" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="wordGlow" x="-12%" y="-55%" width="124%" height="210%">
+      <feGaussianBlur stdDeviation="2.6" result="blur" />
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.1 0 0 0 0 0.65 0 0 0 0 1 0 0 0 0.65 0" result="glow" />
+      <feMerge>
+        <feMergeNode in="glow" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <radialGradient id="coreGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#ffffff" />
+      <stop offset="0.28" stop-color="#ffe766" />
+      <stop offset="0.58" stop-color="#ff8f24" />
+      <stop offset="1" stop-color="#ff2d55" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="rainbowText" x1="108" y1="0" x2="710" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff2d55" />
+      <stop offset="0.14" stop-color="#ff8f24" />
+      <stop offset="0.28" stop-color="#ffe766" />
+      <stop offset="0.42" stop-color="#7dff5a" />
+      <stop offset="0.56" stop-color="#17e7c6" />
+      <stop offset="0.7" stop-color="#20a7ff" />
+      <stop offset="0.84" stop-color="#9b5cff" />
+      <stop offset="1" stop-color="#ff4dda" />
+    </linearGradient>
+    <clipPath id="wordClip">
+      <text x="116" y="226" font-family="Impact, 'Arial Black', system-ui, sans-serif" font-size="64" font-weight="900" letter-spacing="0">FREQUENCY OF LIFE</text>
+    </clipPath>
+  </defs>
+  <style>
+    svg {
+      background: transparent;
+      overflow: visible;
+    }
+
+    .spectrum-line {
+      stroke-linecap: round;
+      stroke-width: 2.4;
+      opacity: 0;
+      transform-box: fill-box;
+      transform-origin: center;
+      filter: url(#hotGlow);
+      animation: spectrumPulse 8s ease-out infinite;
+    }
+
+    .wire-base,
+    .wire-hot {
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .wire-base {
+      stroke: #073dff;
+      stroke-width: 8;
+      filter: url(#blueGlow);
+    }
+
+    .wire-hot {
+      stroke: #ffe95a;
+      stroke-width: 5;
+      stroke-dasharray: 34 760;
+      stroke-dashoffset: 0;
+      filter: url(#hotGlow);
+      opacity: 0.95;
+      animation: powerTrace 8s linear infinite;
+    }
+
+    .word-halo {
+      fill: none;
+      stroke: rgba(238, 248, 255, 0.78);
+      stroke-width: 7;
+      stroke-linejoin: round;
+      filter: url(#wordGlow);
+      animation: wordHalo 8s ease-in-out infinite;
+    }
+
+    .word-main {
+      fill: #05070a;
+      stroke: #2f80ff;
+      stroke-width: 1.4;
+      stroke-linejoin: round;
+      filter: url(#wordGlow);
+      animation: wordPulse 8s ease-in-out infinite;
+    }
+
+    .word-flash {
+      fill: url(#rainbowText);
+      opacity: 0;
+      filter: url(#hotGlow);
+      animation: wordFlash 8s ease-out infinite;
+    }
+
+    .word-spark {
+      opacity: 0;
+      filter: url(#hotGlow);
+      animation: wordFizzle 8s ease-out infinite;
+    }
+
+    .explosion-core,
+    .explosion-ring,
+    .explosion-ring-2 {
+      transform-box: view-box;
+      transform-origin: 110px 205px;
+      opacity: 0;
+      filter: url(#hotGlow);
+    }
+
+    .explosion-core {
+      fill: url(#coreGradient);
+      animation: coreBurst 8s ease-out infinite;
+    }
+
+    .explosion-ring,
+    .explosion-ring-2 {
+      fill: none;
+      stroke-linecap: round;
+      stroke-width: 6;
+    }
+
+    .explosion-ring {
+      stroke: #ffe54c;
+      animation: ringBurst 8s ease-out infinite;
+    }
+
+    .explosion-ring-2 {
+      stroke: #2f80ff;
+      animation: ringBurstTwo 8s ease-out infinite;
+    }
+
+    .spark {
+      opacity: 0;
+      transform-box: view-box;
+      transform-origin: 110px 205px;
+      filter: url(#hotGlow);
+      animation: sparkFly 8s cubic-bezier(.08, .78, .22, 1) infinite;
+    }
+
+    .burst-ray {
+      opacity: 0;
+      stroke-linecap: round;
+      stroke-width: 2.2;
+      filter: url(#hotGlow);
+      stroke-dasharray: 140;
+      stroke-dashoffset: 140;
+      animation: rayFizzle 8s ease-out infinite;
+    }
+
+    .burst-centerline,
+    .burst-waveline {
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: 0;
+      filter: url(#hotGlow);
+      animation: centerlineBurst 8s ease-out infinite;
+    }
+
+    .burst-centerline {
+      stroke: rgba(255, 255, 255, .96);
+      stroke-width: 4.8;
+    }
+
+    .burst-waveline {
+      stroke-width: 2.5;
+      stroke-dasharray: 28 430;
+      stroke-dashoffset: 0;
+      animation-name: waveStaticBurst;
+    }
+
+    .charge {
+      filter: url(#hotGlow);
+      transform-box: view-box;
+      animation: chargeMove 8s cubic-bezier(.55, .02, .21, .98) infinite;
+    }
+
+    .charge-core {
+      fill: #fff7a8;
+    }
+
+    .charge-shell {
+      fill: #ffdd35;
+      opacity: 0.45;
+      animation: chargeBeat 8s ease-in-out infinite;
+    }
+
+    .charge-static {
+      fill: #fff59f;
+      opacity: .78;
+      animation: staticBlink 8s steps(2, end) infinite;
+    }
+
+    @keyframes spectrumPulse {
+      0% { opacity: 0; transform: scaleY(.08); }
+      1.5% { opacity: .95; transform: scaleY(.9); }
+      7% { opacity: .88; transform: scaleY(1.18); }
+      14% { opacity: 0; transform: scaleY(.18); }
+      100% { opacity: 0; transform: scaleY(.08); }
+    }
+
+    @keyframes coreBurst {
+      0% { opacity: .95; transform: scale(.18); }
+      3.8% { opacity: .78; transform: scale(.78); }
+      12% { opacity: 0; transform: scale(1.75); }
+      100% { opacity: 0; transform: scale(.1); }
+    }
+
+    @keyframes ringBurst {
+      0% { opacity: .96; transform: scale(.1); stroke-width: 10; }
+      5.2% { opacity: .84; transform: scale(.8); stroke-width: 5; }
+      15% { opacity: 0; transform: scale(1.62); stroke-width: 1.5; }
+      100% { opacity: 0; transform: scale(.1); }
+    }
+
+    @keyframes ringBurstTwo {
+      0% { opacity: .72; transform: scale(.06); stroke-width: 8; }
+      7% { opacity: .6; transform: scale(1.08); stroke-width: 4; }
+      17% { opacity: 0; transform: scale(1.92); stroke-width: 1; }
+      100% { opacity: 0; transform: scale(.1); }
+    }
+
+    @keyframes rayFizzle {
+      0% { opacity: .95; stroke-dashoffset: 140; stroke-width: 4; }
+      3% { opacity: .88; stroke-dashoffset: 72; }
+      14% { opacity: 0; stroke-dashoffset: 0; stroke-width: .8; }
+      100% { opacity: 0; stroke-dashoffset: 0; }
+    }
+
+    @keyframes centerlineBurst {
+      0% { opacity: .98; stroke-width: 7; }
+      5% { opacity: .95; stroke-width: 4.5; }
+      16% { opacity: 0; stroke-width: 1.2; }
+      100% { opacity: 0; }
+    }
+
+    @keyframes waveStaticBurst {
+      0% { opacity: .92; stroke-dashoffset: 0; }
+      4% { opacity: .8; stroke-dashoffset: -80; }
+      17% { opacity: 0; stroke-dashoffset: -210; }
+      100% { opacity: 0; stroke-dashoffset: -210; }
+    }
+
+    @keyframes sparkFly {
+      0% { opacity: 1; transform: translate(0, 0) scale(.8); }
+      4% { opacity: .95; }
+      16% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(.08); }
+      100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(.08); }
+    }
+
+    @keyframes wordFizzle {
+      0% { opacity: .95; transform: scale(.5); }
+      6% { opacity: .9; transform: scale(1.2); }
+      19% { opacity: 0; transform: scale(.15); }
+      100% { opacity: 0; }
+    }
+
+    @keyframes wordFlash {
+      0%, 8% { opacity: .6; }
+      12% { opacity: .26; }
+      18% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    @keyframes wordPulse {
+      0% { fill: #05070a; stroke: #ffe458; }
+      8% { fill: #102138; stroke: #34d4ff; }
+      18%, 88% { fill: #05070a; stroke: #2f80ff; }
+      95% { fill: #05070a; stroke: #ffe458; }
+      100% { fill: #05070a; stroke: #ffe458; }
+    }
+
+    @keyframes wordHalo {
+      0% { stroke: rgba(255, 229, 76, .88); opacity: .98; }
+      12% { stroke: rgba(235, 249, 255, .74); opacity: .78; }
+      88% { stroke: rgba(235, 249, 255, .62); opacity: .68; }
+      100% { stroke: rgba(255, 229, 76, .88); opacity: .98; }
+    }
+
+    @keyframes powerTrace {
+      0% { stroke-dashoffset: 725; opacity: 1; }
+      11% { stroke-dashoffset: 725; opacity: .15; }
+      58% { stroke-dashoffset: 235; opacity: .92; }
+      86% { stroke-dashoffset: -105; opacity: .95; }
+      96% { stroke-dashoffset: -210; opacity: 1; }
+      100% { stroke-dashoffset: -250; opacity: .15; }
+    }
+
+    @keyframes chargeMove {
+      0% { transform: translate(110px, 205px) scale(1.9); opacity: 0; }
+      12% { transform: translate(110px, 205px) scale(.7); opacity: 0; }
+      18% { transform: translate(150px, 205px) scale(.86); opacity: 1; }
+      56% { transform: translate(705px, 205px) scale(.88); opacity: 1; }
+      74% { transform: translate(742px, 205px) scale(.78); opacity: .86; }
+      93% { transform: translate(132px, 205px) scale(1); opacity: 1; }
+      100% { transform: translate(110px, 205px) scale(1.9); opacity: 0; }
+    }
+
+    @keyframes chargeBeat {
+      0%, 100% { transform: scale(1.8); opacity: .18; }
+      35%, 80% { transform: scale(1.2); opacity: .44; }
+    }
+
+    @keyframes staticBlink {
+      0%, 16% { opacity: 0; }
+      18%, 93% { opacity: .78; }
+      94%, 100% { opacity: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+
+  <g class="spectrum" aria-hidden="true">
+      <path class="burst-centerline" d="M-10 205 C68 197 118 214 190 205 S332 196 404 205 S546 214 618 205 S738 197 810 205" />
+      <path class="burst-waveline" stroke="#ff2d55" d="M-10 205 C68 164 119 246 190 205 S332 167 404 205 S546 242 618 205 S738 165 810 205" />
+      <path class="burst-waveline" stroke="#ffe766" d="M-10 205 C66 230 126 176 190 205 S332 234 404 205 S546 178 618 205 S738 232 810 205" />
+      <path class="burst-waveline" stroke="#17e7c6" d="M-10 205 C68 186 118 228 190 205 S332 184 404 205 S546 226 618 205 S738 185 810 205" />
+      <path class="burst-waveline" stroke="#9b5cff" d="M-10 205 C68 240 118 170 190 205 S332 239 404 205 S546 171 618 205 S738 240 810 205" />
+      <line class="spectrum-line" x1="34.0" y1="109.0" x2="34.0" y2="291.0" stroke="#ff2d55" style="animation-delay:0.000s" />
+      <line class="spectrum-line" x1="46.8" y1="74.2" x2="46.8" y2="325.8" stroke="#ff7a1a" style="animation-delay:0.028s" />
+      <line class="spectrum-line" x1="59.6" y1="50.6" x2="59.6" y2="349.4" stroke="#ffd84d" style="animation-delay:0.056s" />
+      <line class="spectrum-line" x1="72.4" y1="44.5" x2="72.4" y2="355.5" stroke="#7dff5a" style="animation-delay:0.084s" />
+      <line class="spectrum-line" x1="85.2" y1="57.5" x2="85.2" y2="342.5" stroke="#17e7c6" style="animation-delay:0.112s" />
+      <line class="spectrum-line" x1="98.0" y1="86.2" x2="98.0" y2="313.8" stroke="#20a7ff" style="animation-delay:0.140s" />
+      <line class="spectrum-line" x1="110.8" y1="122.7" x2="110.8" y2="277.3" stroke="#3451ff" style="animation-delay:0.168s" />
+      <line class="spectrum-line" x1="123.6" y1="143.7" x2="123.6" y2="256.3" stroke="#9b5cff" style="animation-delay:0.196s" />
+      <line class="spectrum-line" x1="136.4" y1="109.9" x2="136.4" y2="290.1" stroke="#ff4dda" style="animation-delay:0.000s" />
+      <line class="spectrum-line" x1="149.2" y1="92.5" x2="149.2" y2="307.5" stroke="#ff2d55" style="animation-delay:0.028s" />
+      <line class="spectrum-line" x1="162.0" y1="92.3" x2="162.0" y2="307.7" stroke="#ff7a1a" style="animation-delay:0.056s" />
+      <line class="spectrum-line" x1="174.8" y1="105.1" x2="174.8" y2="294.9" stroke="#ffd84d" style="animation-delay:0.084s" />
+      <line class="spectrum-line" x1="187.6" y1="123.0" x2="187.6" y2="277.0" stroke="#7dff5a" style="animation-delay:0.112s" />
+      <line class="spectrum-line" x1="200.4" y1="136.8" x2="200.4" y2="263.2" stroke="#17e7c6" style="animation-delay:0.140s" />
+      <line class="spectrum-line" x1="213.2" y1="162.0" x2="213.2" y2="238.0" stroke="#20a7ff" style="animation-delay:0.168s" />
+      <line class="spectrum-line" x1="226.0" y1="160.9" x2="226.0" y2="239.1" stroke="#3451ff" style="animation-delay:0.196s" />
+      <line class="spectrum-line" x1="238.8" y1="133.8" x2="238.8" y2="266.2" stroke="#9b5cff" style="animation-delay:0.000s" />
+      <line class="spectrum-line" x1="251.6" y1="98.6" x2="251.6" y2="301.4" stroke="#ff4dda" style="animation-delay:0.028s" />
+      <line class="spectrum-line" x1="264.4" y1="64.3" x2="264.4" y2="335.7" stroke="#ff2d55" style="animation-delay:0.056s" />
+      <line class="spectrum-line" x1="277.2" y1="39.9" x2="277.2" y2="360.1" stroke="#ff7a1a" style="animation-delay:0.084s" />
+      <line class="spectrum-line" x1="290.0" y1="32.3" x2="290.0" y2="367.7" stroke="#ffd84d" style="animation-delay:0.112s" />
+      <line class="spectrum-line" x1="302.8" y1="78.8" x2="302.8" y2="321.2" stroke="#7dff5a" style="animation-delay:0.140s" />
+      <line class="spectrum-line" x1="315.6" y1="106.5" x2="315.6" y2="293.5" stroke="#17e7c6" style="animation-delay:0.168s" />
+      <line class="spectrum-line" x1="328.4" y1="143.1" x2="328.4" y2="256.9" stroke="#20a7ff" style="animation-delay:0.196s" />
+      <line class="spectrum-line" x1="341.2" y1="127.0" x2="341.2" y2="273.0" stroke="#3451ff" style="animation-delay:0.000s" />
+      <line class="spectrum-line" x1="354.0" y1="91.1" x2="354.0" y2="308.9" stroke="#9b5cff" style="animation-delay:0.028s" />
+      <line class="spectrum-line" x1="366.8" y1="71.5" x2="366.8" y2="328.5" stroke="#ff4dda" style="animation-delay:0.056s" />
+      <line class="spectrum-line" x1="379.6" y1="69.4" x2="379.6" y2="330.6" stroke="#ff2d55" style="animation-delay:0.084s" />
+      <line class="spectrum-line" x1="392.4" y1="116.4" x2="392.4" y2="283.6" stroke="#ff7a1a" style="animation-delay:0.112s" />
+      <line class="spectrum-line" x1="405.2" y1="134.9" x2="405.2" y2="265.1" stroke="#ffd84d" style="animation-delay:0.140s" />
+      <line class="spectrum-line" x1="418.0" y1="150.7" x2="418.0" y2="249.3" stroke="#7dff5a" style="animation-delay:0.168s" />
+      <line class="spectrum-line" x1="430.8" y1="150.0" x2="430.8" y2="250.0" stroke="#17e7c6" style="animation-delay:0.196s" />
+      <line class="spectrum-line" x1="443.6" y1="146.2" x2="443.6" y2="253.8" stroke="#20a7ff" style="animation-delay:0.000s" />
+      <line class="spectrum-line" x1="456.4" y1="122.0" x2="456.4" y2="278.0" stroke="#3451ff" style="animation-delay:0.028s" />
+      <line class="spectrum-line" x1="469.2" y1="88.7" x2="469.2" y2="311.3" stroke="#9b5cff" style="animation-delay:0.056s" />
+      <line class="spectrum-line" x1="482.0" y1="89.9" x2="482.0" y2="310.1" stroke="#ff4dda" style="animation-delay:0.084s" />
+      <line class="spectrum-line" x1="494.8" y1="64.9" x2="494.8" y2="335.1" stroke="#ff2d55" style="animation-delay:0.112s" />
+      <line class="spectrum-line" x1="507.6" y1="55.8" x2="507.6" y2="344.2" stroke="#ff7a1a" style="animation-delay:0.140s" />
+      <line class="spectrum-line" x1="520.4" y1="65.7" x2="520.4" y2="334.3" stroke="#ffd84d" style="animation-delay:0.168s" />
+      <line class="spectrum-line" x1="533.2" y1="92.3" x2="533.2" y2="307.7" stroke="#7dff5a" style="animation-delay:0.196s" />
+      <line class="spectrum-line" x1="546.0" y1="128.7" x2="546.0" y2="271.3" stroke="#17e7c6" style="animation-delay:0.000s" />
+      <line class="spectrum-line" x1="558.8" y1="110.5" x2="558.8" y2="289.5" stroke="#20a7ff" style="animation-delay:0.028s" />
+      <line class="spectrum-line" x1="571.6" y1="107.8" x2="571.6" y2="292.2" stroke="#3451ff" style="animation-delay:0.056s" />
+      <line class="spectrum-line" x1="584.4" y1="85.9" x2="584.4" y2="314.1" stroke="#9b5cff" style="animation-delay:0.084s" />
+      <line class="spectrum-line" x1="597.2" y1="82.0" x2="597.2" y2="318.0" stroke="#ff4dda" style="animation-delay:0.112s" />
+      <line class="spectrum-line" x1="610.0" y1="93.1" x2="610.0" y2="306.9" stroke="#ff2d55" style="animation-delay:0.140s" />
+      <line class="spectrum-line" x1="622.8" y1="112.1" x2="622.8" y2="287.9" stroke="#ff7a1a" style="animation-delay:0.168s" />
+      <line class="spectrum-line" x1="635.6" y1="129.9" x2="635.6" y2="270.1" stroke="#ffd84d" style="animation-delay:0.196s" />
+      <line class="spectrum-line" x1="648.4" y1="138.0" x2="648.4" y2="262.0" stroke="#7dff5a" style="animation-delay:0.000s" />
+      <line class="spectrum-line" x1="661.2" y1="166.6" x2="661.2" y2="233.4" stroke="#17e7c6" style="animation-delay:0.028s" />
+      <line class="spectrum-line" x1="674.0" y1="145.4" x2="674.0" y2="254.6" stroke="#20a7ff" style="animation-delay:0.056s" />
+      <line class="spectrum-line" x1="686.8" y1="114.2" x2="686.8" y2="285.8" stroke="#3451ff" style="animation-delay:0.084s" />
+      <line class="spectrum-line" x1="699.6" y1="81.1" x2="699.6" y2="318.9" stroke="#9b5cff" style="animation-delay:0.112s" />
+      <line class="spectrum-line" x1="712.4" y1="55.6" x2="712.4" y2="344.4" stroke="#ff4dda" style="animation-delay:0.140s" />
+      <line class="spectrum-line" x1="725.2" y1="45.0" x2="725.2" y2="355.0" stroke="#ff2d55" style="animation-delay:0.168s" />
+      <line class="spectrum-line" x1="738.0" y1="53.2" x2="738.0" y2="346.8" stroke="#ff7a1a" style="animation-delay:0.196s" />
+      <line class="spectrum-line" x1="750.8" y1="113.4" x2="750.8" y2="286.6" stroke="#ffd84d" style="animation-delay:0.000s" />
+      <line class="spectrum-line" x1="763.6" y1="149.4" x2="763.6" y2="250.6" stroke="#7dff5a" style="animation-delay:0.028s" />
+  </g>
+
+  <g class="wire" aria-hidden="true">
+    <path class="wire-base" d="M-8 205 H38 L50 58 L66 338 L82 166 L101 205 H118 H710 H808" />
+    <path class="wire-hot" d="M-8 205 H38 L50 58 L66 338 L82 166 L101 205 H118 H710 H808" />
+  </g>
+
+  <g class="explosion" aria-hidden="true">
+    <circle class="explosion-core" cx="110" cy="205" r="86" />
+    <circle class="explosion-ring" cx="110" cy="205" r="64" />
+    <circle class="explosion-ring-2" cx="110" cy="205" r="42" />
+      <line class="burst-ray" x1="110" y1="205" x2="116.8" y2="91.8" stroke="#ff2d55" style="animation-delay:0.000s" />
+      <line class="burst-ray" x1="110" y1="205" x2="124.6" y2="116.3" stroke="#ffd84d" style="animation-delay:0.014s" />
+      <line class="burst-ray" x1="110" y1="205" x2="134.0" y2="105.7" stroke="#17e7c6" style="animation-delay:0.028s" />
+      <line class="burst-ray" x1="110" y1="205" x2="145.2" y2="45.4" stroke="#3451ff" style="animation-delay:0.042s" />
+      <line class="burst-ray" x1="110" y1="205" x2="157.9" y2="86.1" stroke="#ff4dda" style="animation-delay:0.056s" />
+      <line class="burst-ray" x1="110" y1="205" x2="172.2" y2="77.3" stroke="#ff7a1a" style="animation-delay:0.070s" />
+      <line class="burst-ray" x1="110" y1="205" x2="187.9" y2="7.0" stroke="#7dff5a" style="animation-delay:0.084s" />
+      <line class="burst-ray" x1="110" y1="205" x2="205.0" y2="62.1" stroke="#20a7ff" style="animation-delay:0.098s" />
+      <line class="burst-ray" x1="110" y1="205" x2="223.5" y2="56.0" stroke="#9b5cff" style="animation-delay:0.112s" />
+      <line class="burst-ray" x1="110" y1="205" x2="167.0" y2="108.7" stroke="#ff2d55" style="animation-delay:0.126s" />
+      <line class="burst-ray" x1="110" y1="205" x2="181.2" y2="131.9" stroke="#ffd84d" style="animation-delay:0.000s" />
+      <line class="burst-ray" x1="110" y1="205" x2="196.5" y2="125.7" stroke="#17e7c6" style="animation-delay:0.014s" />
+      <line class="burst-ray" x1="110" y1="205" x2="213.0" y2="81.9" stroke="#3451ff" style="animation-delay:0.028s" />
+      <line class="burst-ray" x1="110" y1="205" x2="230.4" y2="116.6" stroke="#ff4dda" style="animation-delay:0.042s" />
+      <line class="burst-ray" x1="110" y1="205" x2="248.8" y2="113.7" stroke="#ff7a1a" style="animation-delay:0.056s" />
+      <line class="burst-ray" x1="110" y1="205" x2="267.9" y2="69.4" stroke="#7dff5a" style="animation-delay:0.070s" />
+      <line class="burst-ray" x1="110" y1="205" x2="287.7" y2="111.6" stroke="#20a7ff" style="animation-delay:0.084s" />
+      <line class="burst-ray" x1="110" y1="205" x2="308.0" y2="112.5" stroke="#9b5cff" style="animation-delay:0.098s" />
+      <line class="burst-ray" x1="110" y1="205" x2="203.7" y2="148.6" stroke="#ff2d55" style="animation-delay:0.112s" />
+      <line class="burst-ray" x1="110" y1="205" x2="220.8" y2="164.9" stroke="#ffd84d" style="animation-delay:0.126s" />
+      <line class="burst-ray" x1="110" y1="205" x2="238.3" y2="164.7" stroke="#17e7c6" style="animation-delay:0.000s" />
+      <line class="burst-ray" x1="110" y1="205" x2="256.2" y2="147.8" stroke="#3451ff" style="animation-delay:0.014s" />
+      <line class="burst-ray" x1="110" y1="205" x2="274.2" y2="168.2" stroke="#ff4dda" style="animation-delay:0.028s" />
+      <line class="burst-ray" x1="110" y1="205" x2="292.3" y2="171.9" stroke="#ff7a1a" style="animation-delay:0.042s" />
+      <line class="burst-ray" x1="110" y1="205" x2="310.3" y2="164.1" stroke="#7dff5a" style="animation-delay:0.056s" />
+      <line class="burst-ray" x1="110" y1="205" x2="327.9" y2="183.4" stroke="#20a7ff" style="animation-delay:0.070s" />
+      <line class="burst-ray" x1="110" y1="205" x2="345.2" y2="191.0" stroke="#9b5cff" style="animation-delay:0.084s" />
+      <line class="burst-ray" x1="110" y1="205" x2="218.0" y2="201.9" stroke="#ff2d55" style="animation-delay:0.098s" />
+      <line class="burst-ray" x1="110" y1="205" x2="234.0" y2="207.4" stroke="#ffd84d" style="animation-delay:0.112s" />
+      <line class="burst-ray" x1="110" y1="205" x2="249.5" y2="213.3" stroke="#17e7c6" style="animation-delay:0.126s" />
+      <line class="burst-ray" x1="110" y1="205" x2="264.5" y2="227.4" stroke="#3451ff" style="animation-delay:0.000s" />
+      <line class="burst-ray" x1="110" y1="205" x2="278.8" y2="228.6" stroke="#ff4dda" style="animation-delay:0.014s" />
+      <line class="burst-ray" x1="110" y1="205" x2="292.3" y2="238.1" stroke="#ff7a1a" style="animation-delay:0.028s" />
+      <line class="burst-ray" x1="110" y1="205" x2="304.8" y2="268.6" stroke="#7dff5a" style="animation-delay:0.042s" />
+      <line class="burst-ray" x1="110" y1="205" x2="316.2" y2="260.3" stroke="#20a7ff" style="animation-delay:0.056s" />
+      <line class="burst-ray" x1="110" y1="205" x2="326.3" y2="272.9" stroke="#9b5cff" style="animation-delay:0.070s" />
+      <line class="burst-ray" x1="110" y1="205" x2="206.5" y2="256.0" stroke="#ff2d55" style="animation-delay:0.084s" />
+      <line class="burst-ray" x1="110" y1="205" x2="217.6" y2="249.4" stroke="#ffd84d" style="animation-delay:0.098s" />
+      <line class="burst-ray" x1="110" y1="205" x2="227.4" y2="259.9" stroke="#17e7c6" style="animation-delay:0.112s" />
+      <line class="burst-ray" x1="110" y1="205" x2="236.0" y2="301.6" stroke="#3451ff" style="animation-delay:0.126s" />
+      <line class="burst-ray" x1="110" y1="205" x2="243.2" y2="283.4" stroke="#ff4dda" style="animation-delay:0.000s" />
+      <line class="burst-ray" x1="110" y1="205" x2="248.8" y2="296.3" stroke="#ff7a1a" style="animation-delay:0.014s" />
+      <line class="burst-ray" x1="110" y1="205" x2="252.8" y2="357.9" stroke="#7dff5a" style="animation-delay:0.028s" />
+      <line class="burst-ray" x1="110" y1="205" x2="255.2" y2="324.0" stroke="#20a7ff" style="animation-delay:0.042s" />
+      <line class="burst-ray" x1="110" y1="205" x2="255.8" y2="338.6" stroke="#9b5cff" style="animation-delay:0.056s" />
+      <line class="burst-ray" x1="110" y1="205" x2="172.0" y2="297.9" stroke="#ff2d55" style="animation-delay:0.070s" />
+      <line class="burst-ray" x1="110" y1="205" x2="175.5" y2="280.8" stroke="#ffd84d" style="animation-delay:0.084s" />
+      <line class="burst-ray" x1="110" y1="205" x2="177.3" y2="293.4" stroke="#17e7c6" style="animation-delay:0.098s" />
+      <line class="burst-ray" x1="110" y1="205" x2="177.4" y2="352.7" stroke="#3451ff" style="animation-delay:0.112s" />
+      <line class="burst-ray" x1="110" y1="205" x2="175.7" y2="319.5" stroke="#ff4dda" style="animation-delay:0.126s" />
+      <line class="burst-ray" x1="110" y1="205" x2="172.2" y2="332.7" stroke="#ff7a1a" style="animation-delay:0.000s" />
+      <line class="burst-ray" x1="110" y1="205" x2="166.8" y2="410.7" stroke="#7dff5a" style="animation-delay:0.014s" />
+      <line class="burst-ray" x1="110" y1="205" x2="159.6" y2="359.3" stroke="#20a7ff" style="animation-delay:0.028s" />
+      <line class="burst-ray" x1="110" y1="205" x2="150.5" y2="372.4" stroke="#9b5cff" style="animation-delay:0.042s" />
+      <line class="burst-ray" x1="110" y1="205" x2="122.7" y2="317.6" stroke="#ff2d55" style="animation-delay:0.056s" />
+      <line class="burst-ray" x1="110" y1="205" x2="117.8" y2="294.1" stroke="#ffd84d" style="animation-delay:0.070s" />
+      <circle class="spark" cx="110" cy="205" r="1.20" fill="#ff2d55" style="--tx:115.0px;--ty:0.0px;animation-delay:0.000s" />
+      <circle class="spark" cx="110" cy="205" r="1.62" fill="#7dff5a" style="--tx:124.8px;--ty:5.3px;animation-delay:0.018s" />
+      <circle class="spark" cx="110" cy="205" r="2.04" fill="#3451ff" style="--tx:134.3px;--ty:11.4px;animation-delay:0.036s" />
+      <circle class="spark" cx="110" cy="205" r="2.46" fill="#ff2d55" style="--tx:143.4px;--ty:18.3px;animation-delay:0.054s" />
+      <circle class="spark" cx="110" cy="205" r="2.88" fill="#7dff5a" style="--tx:152.0px;--ty:43.8px;animation-delay:0.072s" />
+      <circle class="spark" cx="110" cy="205" r="1.20" fill="#3451ff" style="--tx:160.1px;--ty:34.5px;animation-delay:0.090s" />
+      <circle class="spark" cx="110" cy="205" r="1.62" fill="#ff2d55" style="--tx:167.5px;--ty:43.7px;animation-delay:0.108s" />
+      <circle class="spark" cx="110" cy="205" r="2.04" fill="#7dff5a" style="--tx:174.2px;--ty:53.6px;animation-delay:0.126s" />
+      <circle class="spark" cx="110" cy="205" r="2.46" fill="#3451ff" style="--tx:180.2px;--ty:108.2px;animation-delay:0.144s" />
+      <circle class="spark" cx="110" cy="205" r="2.88" fill="#ff2d55" style="--tx:185.3px;--ty:75.4px;animation-delay:0.162s" />
+      <circle class="spark" cx="110" cy="205" r="1.20" fill="#7dff5a" style="--tx:189.6px;--ty:87.2px;animation-delay:0.180s" />
+      <circle class="spark" cx="110" cy="205" r="1.62" fill="#3451ff" style="--tx:193.0px;--ty:99.5px;animation-delay:0.000s" />
+      <circle class="spark" cx="110" cy="205" r="2.04" fill="#ff2d55" style="--tx:195.4px;--ty:189.3px;animation-delay:0.018s" />
+      <circle class="spark" cx="110" cy="205" r="2.46" fill="#7dff5a" style="--tx:196.8px;--ty:125.5px;animation-delay:0.036s" />
+      <circle class="spark" cx="110" cy="205" r="2.88" fill="#3451ff" style="--tx:197.1px;--ty:139.1px;animation-delay:0.054s" />
+      <circle class="spark" cx="110" cy="205" r="1.20" fill="#ff2d55" style="--tx:196.4px;--ty:153.0px;animation-delay:0.072s" />
+      <circle class="spark" cx="110" cy="205" r="1.62" fill="#7dff5a" style="--tx:194.5px;--ty:282.0px;animation-delay:0.090s" />
+      <circle class="spark" cx="110" cy="205" r="2.04" fill="#3451ff" style="--tx:77.2px;--ty:73.3px;animation-delay:0.108s" />
+      <circle class="spark" cx="110" cy="205" r="2.46" fill="#ff2d55" style="--tx:79.3px;--ty:83.1px;animation-delay:0.126s" />
+      <circle class="spark" cx="110" cy="205" r="2.88" fill="#7dff5a" style="--tx:80.4px;--ty:93.3px;animation-delay:0.144s" />
+      <circle class="spark" cx="110" cy="205" r="1.20" fill="#3451ff" style="--tx:80.6px;--ty:174.8px;animation-delay:0.162s" />
+      <circle class="spark" cx="110" cy="205" r="1.62" fill="#ff2d55" style="--tx:79.7px;--ty:114.3px;animation-delay:0.180s" />
+      <circle class="spark" cx="110" cy="205" r="2.04" fill="#7dff5a" style="--tx:77.8px;--ty:125.1px;animation-delay:0.000s" />
+      <circle class="spark" cx="110" cy="205" r="2.46" fill="#3451ff" style="--tx:74.8px;--ty:136.1px;animation-delay:0.018s" />
+      <circle class="spark" cx="110" cy="205" r="2.88" fill="#ff2d55" style="--tx:70.8px;--ty:247.8px;animation-delay:0.036s" />
+      <circle class="spark" cx="110" cy="205" r="1.20" fill="#7dff5a" style="--tx:65.7px;--ty:157.9px;animation-delay:0.054s" />
+      <circle class="spark" cx="110" cy="205" r="1.62" fill="#3451ff" style="--tx:59.5px;--ty:168.7px;animation-delay:0.072s" />
+      <circle class="spark" cx="110" cy="205" r="2.04" fill="#ff2d55" style="--tx:52.2px;--ty:179.4px;animation-delay:0.090s" />
+      <circle class="spark" cx="110" cy="205" r="2.46" fill="#7dff5a" style="--tx:43.9px;--ty:320.0px;animation-delay:0.108s" />
+      <circle class="spark" cx="110" cy="205" r="2.88" fill="#3451ff" style="--tx:34.5px;--ty:199.9px;animation-delay:0.126s" />
+      <circle class="spark" cx="110" cy="205" r="1.20" fill="#ff2d55" style="--tx:24.0px;--ty:209.7px;animation-delay:0.144s" />
+      <circle class="spark" cx="110" cy="205" r="1.62" fill="#7dff5a" style="--tx:12.5px;--ty:219.0px;animation-delay:0.162s" />
+      <circle class="spark" cx="110" cy="205" r="2.04" fill="#3451ff" style="--tx:0.0px;--ty:384.3px;animation-delay:0.180s" />
+      <circle class="spark" cx="110" cy="205" r="2.46" fill="#ff2d55" style="--tx:-13.5px;--ty:236.2px;animation-delay:0.000s" />
+      <circle class="spark" cx="110" cy="205" r="2.88" fill="#7dff5a" style="--tx:-11.3px;--ty:98.4px;animation-delay:0.018s" />
+      <circle class="spark" cx="110" cy="205" r="1.20" fill="#3451ff" style="--tx:-18.3px;--ty:106.3px;animation-delay:0.036s" />
+      <circle class="spark" cx="110" cy="205" r="1.62" fill="#ff2d55" style="--tx:-26.3px;--ty:192.0px;animation-delay:0.054s" />
+      <circle class="spark" cx="110" cy="205" r="2.04" fill="#7dff5a" style="--tx:-35.2px;--ty:121.0px;animation-delay:0.072s" />
+      <circle class="spark" cx="110" cy="205" r="2.46" fill="#3451ff" style="--tx:-45.0px;--ty:127.6px;animation-delay:0.090s" />
+      <circle class="spark" cx="110" cy="205" r="2.88" fill="#ff2d55" style="--tx:-55.6px;--ty:133.6px;animation-delay:0.108s" />
+      <circle class="spark" cx="110" cy="205" r="1.20" fill="#7dff5a" style="--tx:-67.0px;--ty:234.4px;animation-delay:0.126s" />
+      <circle class="spark" cx="110" cy="205" r="1.62" fill="#3451ff" style="--tx:-79.1px;--ty:143.8px;animation-delay:0.144s" />
+      <circle class="spark" cx="110" cy="205" r="2.04" fill="#ff2d55" style="--tx:-91.9px;--ty:147.9px;animation-delay:0.162s" />
+      <circle class="spark" cx="110" cy="205" r="2.46" fill="#7dff5a" style="--tx:-105.4px;--ty:151.2px;animation-delay:0.180s" />
+      <circle class="spark" cx="110" cy="205" r="2.88" fill="#3451ff" style="--tx:-119.4px;--ty:259.2px;animation-delay:0.000s" />
+      <circle class="spark" cx="110" cy="205" r="1.20" fill="#ff2d55" style="--tx:-134.0px;--ty:155.4px;animation-delay:0.018s" />
+      <circle class="spark" cx="110" cy="205" r="1.62" fill="#7dff5a" style="--tx:-149.1px;--ty:156.2px;animation-delay:0.036s" />
+      <circle class="spark" cx="110" cy="205" r="2.04" fill="#3451ff" style="--tx:-164.5px;--ty:156.1px;animation-delay:0.054s" />
+      <circle class="spark" cx="110" cy="205" r="2.46" fill="#ff2d55" style="--tx:-180.3px;--ty:261.5px;animation-delay:0.072s" />
+      <circle class="spark" cx="110" cy="205" r="2.88" fill="#7dff5a" style="--tx:-196.4px;--ty:153.0px;animation-delay:0.090s" />
+      <circle class="spark" cx="110" cy="205" r="1.20" fill="#3451ff" style="--tx:-212.6px;--ty:150.0px;animation-delay:0.108s" />
+      <circle class="spark" cx="110" cy="205" r="1.62" fill="#ff2d55" style="--tx:-92.4px;--ty:58.9px;animation-delay:0.126s" />
+      <circle class="spark" cx="110" cy="205" r="2.04" fill="#7dff5a" style="--tx:-103.9px;--ty:100.7px;animation-delay:0.144s" />
+      <circle class="spark" cx="110" cy="205" r="2.46" fill="#3451ff" style="--tx:-115.8px;--ty:59.7px;animation-delay:0.162s" />
+      <circle class="spark" cx="110" cy="205" r="2.88" fill="#ff2d55" style="--tx:-127.9px;--ty:58.8px;animation-delay:0.180s" />
+      <circle class="spark" cx="110" cy="205" r="1.20" fill="#7dff5a" style="--tx:-140.1px;--ty:57.0px;animation-delay:0.000s" />
+      <circle class="spark" cx="110" cy="205" r="1.62" fill="#3451ff" style="--tx:-152.4px;--ty:91.6px;animation-delay:0.018s" />
+      <circle class="spark" cx="110" cy="205" r="2.04" fill="#ff2d55" style="--tx:-164.8px;--ty:50.7px;animation-delay:0.036s" />
+      <circle class="spark" cx="110" cy="205" r="2.46" fill="#7dff5a" style="--tx:-177.0px;--ty:46.2px;animation-delay:0.054s" />
+      <circle class="spark" cx="110" cy="205" r="2.88" fill="#3451ff" style="--tx:-189.2px;--ty:40.7px;animation-delay:0.072s" />
+      <circle class="spark" cx="110" cy="205" r="1.20" fill="#ff2d55" style="--tx:-201.1px;--ty:58.0px;animation-delay:0.090s" />
+      <circle class="spark" cx="110" cy="205" r="1.62" fill="#7dff5a" style="--tx:-212.7px;--ty:27.1px;animation-delay:0.108s" />
+      <circle class="spark" cx="110" cy="205" r="2.04" fill="#3451ff" style="--tx:-223.9px;--ty:19.0px;animation-delay:0.126s" />
+      <circle class="spark" cx="110" cy="205" r="2.46" fill="#ff2d55" style="--tx:-234.7px;--ty:9.9px;animation-delay:0.144s" />
+      <circle class="spark" cx="110" cy="205" r="2.88" fill="#7dff5a" style="--tx:-245.0px;--ty:0.0px;animation-delay:0.162s" />
+      <circle class="spark" cx="110" cy="205" r="1.20" fill="#3451ff" style="--tx:-254.7px;--ty:-10.8px;animation-delay:0.180s" />
+      <circle class="spark" cx="110" cy="205" r="1.62" fill="#ff2d55" style="--tx:-263.7px;--ty:-22.3px;animation-delay:0.000s" />
+      <circle class="spark" cx="110" cy="205" r="2.04" fill="#7dff5a" style="--tx:-272.0px;--ty:-34.7px;animation-delay:0.018s" />
+      <circle class="spark" cx="110" cy="205" r="2.46" fill="#3451ff" style="--tx:-112.8px;--ty:-32.5px;animation-delay:0.036s" />
+      <circle class="spark" cx="110" cy="205" r="2.88" fill="#ff2d55" style="--tx:-121.3px;--ty:-26.1px;animation-delay:0.054s" />
+      <circle class="spark" cx="110" cy="205" r="1.20" fill="#7dff5a" style="--tx:-129.2px;--ty:-33.7px;animation-delay:0.072s" />
+      <circle class="spark" cx="110" cy="205" r="1.62" fill="#3451ff" style="--tx:-136.5px;--ty:-42.0px;animation-delay:0.090s" />
+      <circle class="spark" cx="110" cy="205" r="2.04" fill="#ff2d55" style="--tx:-143.2px;--ty:-86.0px;animation-delay:0.108s" />
+      <circle class="spark" cx="110" cy="205" r="2.46" fill="#7dff5a" style="--tx:-149.2px;--ty:-60.7px;animation-delay:0.126s" />
+      <circle class="spark" cx="110" cy="205" r="2.88" fill="#3451ff" style="--tx:-154.3px;--ty:-70.9px;animation-delay:0.144s" />
+      <circle class="spark" cx="110" cy="205" r="1.20" fill="#ff2d55" style="--tx:-158.7px;--ty:-81.8px;animation-delay:0.162s" />
+      <circle class="spark" cx="110" cy="205" r="1.62" fill="#7dff5a" style="--tx:-162.1px;--ty:-157.1px;animation-delay:0.180s" />
+      <circle class="spark" cx="110" cy="205" r="2.04" fill="#3451ff" style="--tx:-164.7px;--ty:-105.0px;animation-delay:0.000s" />
+      <circle class="spark" cx="110" cy="205" r="2.46" fill="#ff2d55" style="--tx:-166.2px;--ty:-117.3px;animation-delay:0.018s" />
+      <circle class="spark" cx="110" cy="205" r="2.88" fill="#7dff5a" style="--tx:-166.7px;--ty:-129.9px;animation-delay:0.036s" />
+      <circle class="spark" cx="110" cy="205" r="1.20" fill="#3451ff" style="--tx:-166.2px;--ty:-240.9px;animation-delay:0.054s" />
+      <circle class="spark" cx="110" cy="205" r="1.62" fill="#ff2d55" style="--tx:-164.5px;--ty:-156.1px;animation-delay:0.072s" />
+      <circle class="spark" cx="110" cy="205" r="2.04" fill="#7dff5a" style="--tx:-161.8px;--ty:-169.5px;animation-delay:0.090s" />
+      <circle class="spark" cx="110" cy="205" r="2.46" fill="#3451ff" style="--tx:-157.9px;--ty:-183.1px;animation-delay:0.108s" />
+      <circle class="spark" cx="110" cy="205" r="2.88" fill="#ff2d55" style="--tx:-152.8px;--ty:-331.5px;animation-delay:0.126s" />
+      <circle class="spark" cx="110" cy="205" r="1.20" fill="#7dff5a" style="--tx:-59.1px;--ty:-84.8px;animation-delay:0.144s" />
+      <circle class="spark" cx="110" cy="205" r="1.62" fill="#3451ff" style="--tx:-58.9px;--ty:-94.8px;animation-delay:0.162s" />
+      <circle class="spark" cx="110" cy="205" r="2.04" fill="#ff2d55" style="--tx:-57.7px;--ty:-105.0px;animation-delay:0.180s" />
+      <circle class="spark" cx="110" cy="205" r="2.46" fill="#7dff5a" style="--tx:-55.5px;--ty:-194.2px;animation-delay:0.000s" />
+      <circle class="spark" cx="110" cy="205" r="2.88" fill="#3451ff" style="--tx:-52.2px;--ty:-125.5px;animation-delay:0.018s" />
+      <circle class="spark" cx="110" cy="205" r="1.20" fill="#ff2d55" style="--tx:-47.9px;--ty:-135.8px;animation-delay:0.036s" />
+      <circle class="spark" cx="110" cy="205" r="1.62" fill="#7dff5a" style="--tx:-42.5px;--ty:-146.0px;animation-delay:0.054s" />
+      <circle class="spark" cx="110" cy="205" r="2.04" fill="#3451ff" style="--tx:-36.1px;--ty:-263.1px;animation-delay:0.072s" />
+      <circle class="spark" cx="110" cy="205" r="2.46" fill="#ff2d55" style="--tx:-28.6px;--ty:-165.9px;animation-delay:0.090s" />
+      <circle class="spark" cx="110" cy="205" r="2.88" fill="#7dff5a" style="--tx:-20.1px;--ty:-175.5px;animation-delay:0.108s" />
+      <circle class="spark" cx="110" cy="205" r="1.20" fill="#3451ff" style="--tx:-10.5px;--ty:-184.7px;animation-delay:0.126s" />
+      <circle class="spark" cx="110" cy="205" r="1.62" fill="#ff2d55" style="--tx:-0.0px;--ty:-326.3px;animation-delay:0.144s" />
+      <circle class="spark" cx="110" cy="205" r="2.04" fill="#7dff5a" style="--tx:11.5px;--ty:-201.9px;animation-delay:0.162s" />
+      <circle class="spark" cx="110" cy="205" r="2.46" fill="#3451ff" style="--tx:24.0px;--ty:-209.7px;animation-delay:0.180s" />
+      <circle class="spark" cx="110" cy="205" r="2.88" fill="#ff2d55" style="--tx:37.4px;--ty:-216.9px;animation-delay:0.000s" />
+      <circle class="spark" cx="110" cy="205" r="1.20" fill="#7dff5a" style="--tx:51.7px;--ty:-376.9px;animation-delay:0.018s" />
+      <circle class="spark" cx="110" cy="205" r="1.62" fill="#3451ff" style="--tx:66.8px;--ty:-229.4px;animation-delay:0.036s" />
+      <circle class="spark" cx="110" cy="205" r="2.04" fill="#ff2d55" style="--tx:33.4px;--ty:-94.6px;animation-delay:0.054s" />
+      <circle class="spark" cx="110" cy="205" r="2.46" fill="#7dff5a" style="--tx:42.1px;--ty:-101.2px;animation-delay:0.072s" />
+      <circle class="spark" cx="110" cy="205" r="2.88" fill="#3451ff" style="--tx:51.7px;--ty:-180.8px;animation-delay:0.090s" />
+      <circle class="spark" cx="110" cy="205" r="1.20" fill="#ff2d55" style="--tx:62.0px;--ty:-112.7px;animation-delay:0.108s" />
+      <circle class="spark" cx="110" cy="205" r="1.62" fill="#7dff5a" style="--tx:73.1px;--ty:-117.6px;animation-delay:0.126s" />
+      <circle class="spark" cx="110" cy="205" r="2.04" fill="#3451ff" style="--tx:84.8px;--ty:-121.7px;animation-delay:0.144s" />
+      <circle class="spark" cx="110" cy="205" r="2.46" fill="#ff2d55" style="--tx:97.2px;--ty:-211.0px;animation-delay:0.162s" />
+      <circle class="spark" cx="110" cy="205" r="2.88" fill="#7dff5a" style="--tx:110.2px;--ty:-127.8px;animation-delay:0.180s" />
+      <circle class="spark" cx="110" cy="205" r="1.20" fill="#3451ff" style="--tx:123.7px;--ty:-129.6px;animation-delay:0.000s" />
+      <circle class="spark" cx="110" cy="205" r="1.62" fill="#ff2d55" style="--tx:137.7px;--ty:-130.6px;animation-delay:0.018s" />
+      <circle class="spark" cx="110" cy="205" r="2.04" fill="#7dff5a" style="--tx:152.0px;--ty:-220.4px;animation-delay:0.036s" />
+      <circle class="spark" cx="110" cy="205" r="2.46" fill="#3451ff" style="--tx:166.7px;--ty:-129.9px;animation-delay:0.054s" />
+      <circle class="spark" cx="110" cy="205" r="2.88" fill="#ff2d55" style="--tx:181.7px;--ty:-128.2px;animation-delay:0.072s" />
+      <circle class="spark" cx="110" cy="205" r="1.20" fill="#7dff5a" style="--tx:196.8px;--ty:-125.5px;animation-delay:0.090s" />
+      <circle class="spark" cx="110" cy="205" r="1.62" fill="#3451ff" style="--tx:212.0px;--ty:-205.4px;animation-delay:0.108s" />
+      <circle class="spark" cx="110" cy="205" r="2.04" fill="#ff2d55" style="--tx:227.3px;--ty:-117.2px;animation-delay:0.126s" />
+      <circle class="spark" cx="110" cy="205" r="2.46" fill="#7dff5a" style="--tx:242.5px;--ty:-111.5px;animation-delay:0.144s" />
+      <circle class="spark" cx="110" cy="205" r="2.88" fill="#3451ff" style="--tx:104.0px;--ty:-42.3px;animation-delay:0.162s" />
+      <circle class="spark" cx="110" cy="205" r="1.20" fill="#ff2d55" style="--tx:115.5px;--ty:-69.4px;animation-delay:0.180s" />
+      <circle class="spark" cx="110" cy="205" r="1.62" fill="#7dff5a" style="--tx:127.1px;--ty:-39.1px;animation-delay:0.000s" />
+      <circle class="spark" cx="110" cy="205" r="2.04" fill="#3451ff" style="--tx:138.8px;--ty:-36.2px;animation-delay:0.018s" />
+      <circle class="spark" cx="110" cy="205" r="2.46" fill="#ff2d55" style="--tx:150.4px;--ty:-32.4px;animation-delay:0.036s" />
+      <circle class="spark" cx="110" cy="205" r="2.88" fill="#7dff5a" style="--tx:161.8px;--ty:-46.7px;animation-delay:0.054s" />
+      <circle class="spark" cx="110" cy="205" r="1.20" fill="#3451ff" style="--tx:173.1px;--ty:-22.1px;animation-delay:0.072s" />
+      <circle class="spark" cx="110" cy="205" r="1.62" fill="#ff2d55" style="--tx:184.1px;--ty:-15.6px;animation-delay:0.090s" />
+      <circle class="spark" cx="110" cy="205" r="2.04" fill="#7dff5a" style="--tx:194.8px;--ty:-8.2px;animation-delay:0.108s" />
+  </g>
+
+  <g class="words" aria-hidden="true">
+    <text class="word-halo" x="116" y="226" font-family="Impact, 'Arial Black', system-ui, sans-serif" font-size="64" font-weight="900" letter-spacing="0">FREQUENCY OF LIFE</text>
+    <text class="word-main" x="116" y="226" font-family="Impact, 'Arial Black', system-ui, sans-serif" font-size="64" font-weight="900" letter-spacing="0">FREQUENCY OF LIFE</text>
+    <text class="word-flash" x="116" y="226" font-family="Impact, 'Arial Black', system-ui, sans-serif" font-size="64" font-weight="900" letter-spacing="0">FREQUENCY OF LIFE</text>
+    <g clip-path="url(#wordClip)">
+        <circle class="word-spark" cx="118.0" cy="158.0" r="1.10" fill="#ff2d55" style="animation-delay:0.000s" />
+        <circle class="word-spark" cx="122.1" cy="177.0" r="1.45" fill="#20a7ff" style="animation-delay:0.022s" />
+        <circle class="word-spark" cx="126.2" cy="196.0" r="1.80" fill="#ff7a1a" style="animation-delay:0.044s" />
+        <circle class="word-spark" cx="130.3" cy="215.0" r="2.15" fill="#3451ff" style="animation-delay:0.066s" />
+        <circle class="word-spark" cx="134.4" cy="234.0" r="1.10" fill="#ffd84d" style="animation-delay:0.088s" />
+        <circle class="word-spark" cx="138.5" cy="165.0" r="1.45" fill="#9b5cff" style="animation-delay:0.110s" />
+        <circle class="word-spark" cx="142.6" cy="184.0" r="1.80" fill="#7dff5a" style="animation-delay:0.132s" />
+        <circle class="word-spark" cx="146.7" cy="203.0" r="2.15" fill="#ff4dda" style="animation-delay:0.154s" />
+        <circle class="word-spark" cx="150.8" cy="222.0" r="1.10" fill="#17e7c6" style="animation-delay:0.176s" />
+        <circle class="word-spark" cx="154.9" cy="241.0" r="1.45" fill="#ff2d55" style="animation-delay:0.198s" />
+        <circle class="word-spark" cx="159.0" cy="172.0" r="1.80" fill="#20a7ff" style="animation-delay:0.220s" />
+        <circle class="word-spark" cx="163.1" cy="191.0" r="2.15" fill="#ff7a1a" style="animation-delay:0.242s" />
+        <circle class="word-spark" cx="167.2" cy="210.0" r="1.10" fill="#3451ff" style="animation-delay:0.264s" />
+        <circle class="word-spark" cx="171.3" cy="229.0" r="1.45" fill="#ffd84d" style="animation-delay:0.286s" />
+        <circle class="word-spark" cx="175.4" cy="160.0" r="1.80" fill="#9b5cff" style="animation-delay:0.308s" />
+        <circle class="word-spark" cx="179.5" cy="179.0" r="2.15" fill="#7dff5a" style="animation-delay:0.000s" />
+        <circle class="word-spark" cx="183.6" cy="198.0" r="1.10" fill="#ff4dda" style="animation-delay:0.022s" />
+        <circle class="word-spark" cx="187.7" cy="217.0" r="1.45" fill="#17e7c6" style="animation-delay:0.044s" />
+        <circle class="word-spark" cx="191.8" cy="236.0" r="1.80" fill="#ff2d55" style="animation-delay:0.066s" />
+        <circle class="word-spark" cx="195.9" cy="167.0" r="2.15" fill="#20a7ff" style="animation-delay:0.088s" />
+        <circle class="word-spark" cx="200.0" cy="186.0" r="1.10" fill="#ff7a1a" style="animation-delay:0.110s" />
+        <circle class="word-spark" cx="204.1" cy="205.0" r="1.45" fill="#3451ff" style="animation-delay:0.132s" />
+        <circle class="word-spark" cx="208.2" cy="224.0" r="1.80" fill="#ffd84d" style="animation-delay:0.154s" />
+        <circle class="word-spark" cx="212.3" cy="243.0" r="2.15" fill="#9b5cff" style="animation-delay:0.176s" />
+        <circle class="word-spark" cx="216.4" cy="174.0" r="1.10" fill="#7dff5a" style="animation-delay:0.198s" />
+        <circle class="word-spark" cx="220.5" cy="193.0" r="1.45" fill="#ff4dda" style="animation-delay:0.220s" />
+        <circle class="word-spark" cx="224.6" cy="212.0" r="1.80" fill="#17e7c6" style="animation-delay:0.242s" />
+        <circle class="word-spark" cx="228.7" cy="231.0" r="2.15" fill="#ff2d55" style="animation-delay:0.264s" />
+        <circle class="word-spark" cx="232.8" cy="162.0" r="1.10" fill="#20a7ff" style="animation-delay:0.286s" />
+        <circle class="word-spark" cx="236.9" cy="181.0" r="1.45" fill="#ff7a1a" style="animation-delay:0.308s" />
+        <circle class="word-spark" cx="241.0" cy="200.0" r="1.80" fill="#3451ff" style="animation-delay:0.000s" />
+        <circle class="word-spark" cx="245.1" cy="219.0" r="2.15" fill="#ffd84d" style="animation-delay:0.022s" />
+        <circle class="word-spark" cx="249.2" cy="238.0" r="1.10" fill="#9b5cff" style="animation-delay:0.044s" />
+        <circle class="word-spark" cx="253.3" cy="169.0" r="1.45" fill="#7dff5a" style="animation-delay:0.066s" />
+        <circle class="word-spark" cx="257.4" cy="188.0" r="1.80" fill="#ff4dda" style="animation-delay:0.088s" />
+        <circle class="word-spark" cx="261.5" cy="207.0" r="2.15" fill="#17e7c6" style="animation-delay:0.110s" />
+        <circle class="word-spark" cx="265.6" cy="226.0" r="1.10" fill="#ff2d55" style="animation-delay:0.132s" />
+        <circle class="word-spark" cx="269.7" cy="245.0" r="1.45" fill="#20a7ff" style="animation-delay:0.154s" />
+        <circle class="word-spark" cx="273.8" cy="176.0" r="1.80" fill="#ff7a1a" style="animation-delay:0.176s" />
+        <circle class="word-spark" cx="277.9" cy="195.0" r="2.15" fill="#3451ff" style="animation-delay:0.198s" />
+        <circle class="word-spark" cx="282.0" cy="214.0" r="1.10" fill="#ffd84d" style="animation-delay:0.220s" />
+        <circle class="word-spark" cx="286.1" cy="233.0" r="1.45" fill="#9b5cff" style="animation-delay:0.242s" />
+        <circle class="word-spark" cx="290.2" cy="164.0" r="1.80" fill="#7dff5a" style="animation-delay:0.264s" />
+        <circle class="word-spark" cx="294.3" cy="183.0" r="2.15" fill="#ff4dda" style="animation-delay:0.286s" />
+        <circle class="word-spark" cx="298.4" cy="202.0" r="1.10" fill="#17e7c6" style="animation-delay:0.308s" />
+        <circle class="word-spark" cx="302.5" cy="221.0" r="1.45" fill="#ff2d55" style="animation-delay:0.000s" />
+        <circle class="word-spark" cx="306.6" cy="240.0" r="1.80" fill="#20a7ff" style="animation-delay:0.022s" />
+        <circle class="word-spark" cx="310.7" cy="171.0" r="2.15" fill="#ff7a1a" style="animation-delay:0.044s" />
+        <circle class="word-spark" cx="314.8" cy="190.0" r="1.10" fill="#3451ff" style="animation-delay:0.066s" />
+        <circle class="word-spark" cx="318.9" cy="209.0" r="1.45" fill="#ffd84d" style="animation-delay:0.088s" />
+        <circle class="word-spark" cx="323.0" cy="228.0" r="1.80" fill="#9b5cff" style="animation-delay:0.110s" />
+        <circle class="word-spark" cx="327.1" cy="159.0" r="2.15" fill="#7dff5a" style="animation-delay:0.132s" />
+        <circle class="word-spark" cx="331.2" cy="178.0" r="1.10" fill="#ff4dda" style="animation-delay:0.154s" />
+        <circle class="word-spark" cx="335.3" cy="197.0" r="1.45" fill="#17e7c6" style="animation-delay:0.176s" />
+        <circle class="word-spark" cx="339.4" cy="216.0" r="1.80" fill="#ff2d55" style="animation-delay:0.198s" />
+        <circle class="word-spark" cx="343.5" cy="235.0" r="2.15" fill="#20a7ff" style="animation-delay:0.220s" />
+        <circle class="word-spark" cx="347.6" cy="166.0" r="1.10" fill="#ff7a1a" style="animation-delay:0.242s" />
+        <circle class="word-spark" cx="351.7" cy="185.0" r="1.45" fill="#3451ff" style="animation-delay:0.264s" />
+        <circle class="word-spark" cx="355.8" cy="204.0" r="1.80" fill="#ffd84d" style="animation-delay:0.286s" />
+        <circle class="word-spark" cx="359.9" cy="223.0" r="2.15" fill="#9b5cff" style="animation-delay:0.308s" />
+        <circle class="word-spark" cx="364.0" cy="242.0" r="1.10" fill="#7dff5a" style="animation-delay:0.000s" />
+        <circle class="word-spark" cx="368.1" cy="173.0" r="1.45" fill="#ff4dda" style="animation-delay:0.022s" />
+        <circle class="word-spark" cx="372.2" cy="192.0" r="1.80" fill="#17e7c6" style="animation-delay:0.044s" />
+        <circle class="word-spark" cx="376.3" cy="211.0" r="2.15" fill="#ff2d55" style="animation-delay:0.066s" />
+        <circle class="word-spark" cx="380.4" cy="230.0" r="1.10" fill="#20a7ff" style="animation-delay:0.088s" />
+        <circle class="word-spark" cx="384.5" cy="161.0" r="1.45" fill="#ff7a1a" style="animation-delay:0.110s" />
+        <circle class="word-spark" cx="388.6" cy="180.0" r="1.80" fill="#3451ff" style="animation-delay:0.132s" />
+        <circle class="word-spark" cx="392.7" cy="199.0" r="2.15" fill="#ffd84d" style="animation-delay:0.154s" />
+        <circle class="word-spark" cx="396.8" cy="218.0" r="1.10" fill="#9b5cff" style="animation-delay:0.176s" />
+        <circle class="word-spark" cx="400.9" cy="237.0" r="1.45" fill="#7dff5a" style="animation-delay:0.198s" />
+        <circle class="word-spark" cx="405.0" cy="168.0" r="1.80" fill="#ff4dda" style="animation-delay:0.220s" />
+        <circle class="word-spark" cx="409.1" cy="187.0" r="2.15" fill="#17e7c6" style="animation-delay:0.242s" />
+        <circle class="word-spark" cx="413.2" cy="206.0" r="1.10" fill="#ff2d55" style="animation-delay:0.264s" />
+        <circle class="word-spark" cx="417.3" cy="225.0" r="1.45" fill="#20a7ff" style="animation-delay:0.286s" />
+        <circle class="word-spark" cx="421.4" cy="244.0" r="1.80" fill="#ff7a1a" style="animation-delay:0.308s" />
+        <circle class="word-spark" cx="425.5" cy="175.0" r="2.15" fill="#3451ff" style="animation-delay:0.000s" />
+        <circle class="word-spark" cx="429.6" cy="194.0" r="1.10" fill="#ffd84d" style="animation-delay:0.022s" />
+        <circle class="word-spark" cx="433.7" cy="213.0" r="1.45" fill="#9b5cff" style="animation-delay:0.044s" />
+        <circle class="word-spark" cx="437.8" cy="232.0" r="1.80" fill="#7dff5a" style="animation-delay:0.066s" />
+        <circle class="word-spark" cx="441.9" cy="163.0" r="2.15" fill="#ff4dda" style="animation-delay:0.088s" />
+        <circle class="word-spark" cx="446.0" cy="182.0" r="1.10" fill="#17e7c6" style="animation-delay:0.110s" />
+        <circle class="word-spark" cx="450.1" cy="201.0" r="1.45" fill="#ff2d55" style="animation-delay:0.132s" />
+        <circle class="word-spark" cx="454.2" cy="220.0" r="1.80" fill="#20a7ff" style="animation-delay:0.154s" />
+        <circle class="word-spark" cx="458.3" cy="239.0" r="2.15" fill="#ff7a1a" style="animation-delay:0.176s" />
+        <circle class="word-spark" cx="462.4" cy="170.0" r="1.10" fill="#3451ff" style="animation-delay:0.198s" />
+        <circle class="word-spark" cx="466.5" cy="189.0" r="1.45" fill="#ffd84d" style="animation-delay:0.220s" />
+        <circle class="word-spark" cx="470.6" cy="208.0" r="1.80" fill="#9b5cff" style="animation-delay:0.242s" />
+        <circle class="word-spark" cx="474.7" cy="227.0" r="2.15" fill="#7dff5a" style="animation-delay:0.264s" />
+        <circle class="word-spark" cx="478.8" cy="158.0" r="1.10" fill="#ff4dda" style="animation-delay:0.286s" />
+        <circle class="word-spark" cx="482.9" cy="177.0" r="1.45" fill="#17e7c6" style="animation-delay:0.308s" />
+        <circle class="word-spark" cx="487.0" cy="196.0" r="1.80" fill="#ff2d55" style="animation-delay:0.000s" />
+        <circle class="word-spark" cx="491.1" cy="215.0" r="2.15" fill="#20a7ff" style="animation-delay:0.022s" />
+        <circle class="word-spark" cx="495.2" cy="234.0" r="1.10" fill="#ff7a1a" style="animation-delay:0.044s" />
+        <circle class="word-spark" cx="499.3" cy="165.0" r="1.45" fill="#3451ff" style="animation-delay:0.066s" />
+        <circle class="word-spark" cx="503.4" cy="184.0" r="1.80" fill="#ffd84d" style="animation-delay:0.088s" />
+        <circle class="word-spark" cx="507.5" cy="203.0" r="2.15" fill="#9b5cff" style="animation-delay:0.110s" />
+        <circle class="word-spark" cx="511.6" cy="222.0" r="1.10" fill="#7dff5a" style="animation-delay:0.132s" />
+        <circle class="word-spark" cx="515.7" cy="241.0" r="1.45" fill="#ff4dda" style="animation-delay:0.154s" />
+        <circle class="word-spark" cx="519.8" cy="172.0" r="1.80" fill="#17e7c6" style="animation-delay:0.176s" />
+        <circle class="word-spark" cx="523.9" cy="191.0" r="2.15" fill="#ff2d55" style="animation-delay:0.198s" />
+        <circle class="word-spark" cx="528.0" cy="210.0" r="1.10" fill="#20a7ff" style="animation-delay:0.220s" />
+        <circle class="word-spark" cx="532.1" cy="229.0" r="1.45" fill="#ff7a1a" style="animation-delay:0.242s" />
+        <circle class="word-spark" cx="536.2" cy="160.0" r="1.80" fill="#3451ff" style="animation-delay:0.264s" />
+        <circle class="word-spark" cx="540.3" cy="179.0" r="2.15" fill="#ffd84d" style="animation-delay:0.286s" />
+        <circle class="word-spark" cx="544.4" cy="198.0" r="1.10" fill="#9b5cff" style="animation-delay:0.308s" />
+        <circle class="word-spark" cx="548.5" cy="217.0" r="1.45" fill="#7dff5a" style="animation-delay:0.000s" />
+        <circle class="word-spark" cx="552.6" cy="236.0" r="1.80" fill="#ff4dda" style="animation-delay:0.022s" />
+        <circle class="word-spark" cx="556.7" cy="167.0" r="2.15" fill="#17e7c6" style="animation-delay:0.044s" />
+        <circle class="word-spark" cx="560.8" cy="186.0" r="1.10" fill="#ff2d55" style="animation-delay:0.066s" />
+        <circle class="word-spark" cx="564.9" cy="205.0" r="1.45" fill="#20a7ff" style="animation-delay:0.088s" />
+        <circle class="word-spark" cx="569.0" cy="224.0" r="1.80" fill="#ff7a1a" style="animation-delay:0.110s" />
+        <circle class="word-spark" cx="573.1" cy="243.0" r="2.15" fill="#3451ff" style="animation-delay:0.132s" />
+        <circle class="word-spark" cx="577.2" cy="174.0" r="1.10" fill="#ffd84d" style="animation-delay:0.154s" />
+        <circle class="word-spark" cx="581.3" cy="193.0" r="1.45" fill="#9b5cff" style="animation-delay:0.176s" />
+        <circle class="word-spark" cx="585.4" cy="212.0" r="1.80" fill="#7dff5a" style="animation-delay:0.198s" />
+        <circle class="word-spark" cx="589.5" cy="231.0" r="2.15" fill="#ff4dda" style="animation-delay:0.220s" />
+        <circle class="word-spark" cx="593.6" cy="162.0" r="1.10" fill="#17e7c6" style="animation-delay:0.242s" />
+        <circle class="word-spark" cx="597.7" cy="181.0" r="1.45" fill="#ff2d55" style="animation-delay:0.264s" />
+        <circle class="word-spark" cx="601.8" cy="200.0" r="1.80" fill="#20a7ff" style="animation-delay:0.286s" />
+        <circle class="word-spark" cx="605.9" cy="219.0" r="2.15" fill="#ff7a1a" style="animation-delay:0.308s" />
+        <circle class="word-spark" cx="610.0" cy="238.0" r="1.10" fill="#3451ff" style="animation-delay:0.000s" />
+        <circle class="word-spark" cx="614.1" cy="169.0" r="1.45" fill="#ffd84d" style="animation-delay:0.022s" />
+        <circle class="word-spark" cx="618.2" cy="188.0" r="1.80" fill="#9b5cff" style="animation-delay:0.044s" />
+        <circle class="word-spark" cx="622.3" cy="207.0" r="2.15" fill="#7dff5a" style="animation-delay:0.066s" />
+        <circle class="word-spark" cx="626.4" cy="226.0" r="1.10" fill="#ff4dda" style="animation-delay:0.088s" />
+        <circle class="word-spark" cx="630.5" cy="245.0" r="1.45" fill="#17e7c6" style="animation-delay:0.110s" />
+        <circle class="word-spark" cx="634.6" cy="176.0" r="1.80" fill="#ff2d55" style="animation-delay:0.132s" />
+        <circle class="word-spark" cx="638.7" cy="195.0" r="2.15" fill="#20a7ff" style="animation-delay:0.154s" />
+        <circle class="word-spark" cx="642.8" cy="214.0" r="1.10" fill="#ff7a1a" style="animation-delay:0.176s" />
+        <circle class="word-spark" cx="646.9" cy="233.0" r="1.45" fill="#3451ff" style="animation-delay:0.198s" />
+        <circle class="word-spark" cx="651.0" cy="164.0" r="1.80" fill="#ffd84d" style="animation-delay:0.220s" />
+        <circle class="word-spark" cx="655.1" cy="183.0" r="2.15" fill="#9b5cff" style="animation-delay:0.242s" />
+        <circle class="word-spark" cx="659.2" cy="202.0" r="1.10" fill="#7dff5a" style="animation-delay:0.264s" />
+        <circle class="word-spark" cx="663.3" cy="221.0" r="1.45" fill="#ff4dda" style="animation-delay:0.286s" />
+        <circle class="word-spark" cx="667.4" cy="240.0" r="1.80" fill="#17e7c6" style="animation-delay:0.308s" />
+        <circle class="word-spark" cx="671.5" cy="171.0" r="2.15" fill="#ff2d55" style="animation-delay:0.000s" />
+        <circle class="word-spark" cx="675.6" cy="190.0" r="1.10" fill="#20a7ff" style="animation-delay:0.022s" />
+        <circle class="word-spark" cx="679.7" cy="209.0" r="1.45" fill="#ff7a1a" style="animation-delay:0.044s" />
+        <circle class="word-spark" cx="683.8" cy="228.0" r="1.80" fill="#3451ff" style="animation-delay:0.066s" />
+        <circle class="word-spark" cx="687.9" cy="159.0" r="2.15" fill="#ffd84d" style="animation-delay:0.088s" />
+        <circle class="word-spark" cx="692.0" cy="178.0" r="1.10" fill="#9b5cff" style="animation-delay:0.110s" />
+        <circle class="word-spark" cx="696.1" cy="197.0" r="1.45" fill="#7dff5a" style="animation-delay:0.132s" />
+        <circle class="word-spark" cx="700.2" cy="216.0" r="1.80" fill="#ff4dda" style="animation-delay:0.154s" />
+        <circle class="word-spark" cx="704.3" cy="235.0" r="2.15" fill="#17e7c6" style="animation-delay:0.176s" />
+        <circle class="word-spark" cx="118.4" cy="166.0" r="1.10" fill="#ff2d55" style="animation-delay:0.198s" />
+    </g>
+  </g>
+
+  <g class="charge" aria-hidden="true">
+    <circle class="charge-static" cx="-24" cy="-3" r="2.4" />
+    <circle class="charge-static" cx="-16" cy="7" r="1.8" style="animation-delay:.035s" />
+    <circle class="charge-static" cx="-31" cy="9" r="1.4" style="animation-delay:.07s" />
+    <circle class="charge-static" cx="-10" cy="-10" r="1.5" style="animation-delay:.11s" />
+    <circle class="charge-shell" cx="0" cy="0" r="18" />
+    <circle class="charge-core" cx="0" cy="0" r="7" />
+  </g>
+</svg>
