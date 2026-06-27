@@ -212,20 +212,28 @@ textarea {
 }
 
 .frequency-logo-strip {
-  background: rgba(255, 255, 255, 0.96);
-  border: 1px solid rgba(47, 128, 255, 0.38);
-  border-radius: 8px;
-  box-shadow: 0 18px 42px rgba(5, 7, 10, 0.28);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
   margin-top: 24px;
   max-width: min(620px, 100%);
-  overflow: hidden;
-  padding: 8px 12px;
+  overflow: visible;
+  padding: 0;
+}
+
+.frequency-logo-strip picture,
+.frequency-logo-strip img {
+  aspect-ratio: 2.22 / 1;
+  display: block;
+  object-fit: contain;
+  width: 100%;
 }
 
 .frequency-logo-strip img {
-  aspect-ratio: 2.22 / 1;
-  object-fit: contain;
-  width: 100%;
+  filter:
+    drop-shadow(0 0 16px rgba(47, 128, 255, 0.42))
+    drop-shadow(0 0 8px rgba(255, 212, 77, 0.22));
 }
 
 .hero-copy {
@@ -678,9 +686,20 @@ h3 {
 }
 
 .site-footer .footer-frequency-logo {
+  display: block;
+  flex: 0 0 auto;
   height: 62px;
-  padding: 4px 8px;
   width: clamp(170px, 20vw, 260px);
+}
+
+.site-footer .footer-frequency-logo img {
+  background: transparent;
+  border-radius: 0;
+  height: 100%;
+  object-fit: contain;
+  padding: 0;
+  width: 100%;
+  filter: drop-shadow(0 0 10px rgba(47, 128, 255, 0.34));
 }
 
 .site-footer p {

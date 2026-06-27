@@ -6,7 +6,9 @@
 - `styles.css` and `script.js` power the layout, animation, and quote-summary form.
 - `assets/` contains the cleaned working assets used by the site and collateral, including optimized WebP rack photos with PNG fallbacks.
 - `frequency-logo-preview.html` is the standalone approved Frequency of Life GIF preview.
-- `assets/frequency-of-life-logo.gif` is the approved animated Frequency of Life asset used by the website.
+- `assets/frequency-of-life-logo-transparent-return-burst.png` is the transparent return-burst Frequency of Life animation used by the website.
+- `assets/frequency-of-life-logo-transparent-return-burst.gif` is the fallback animation for the transparent return-burst logo.
+- `assets/frequency-of-life-logo.gif` is the original approved animated Frequency of Life source/reference asset.
 - `frequency-logo-preview.gif` is the approved GIF copied from the client-provided reference.
 - `archive/frequency-logo-preview-generated-ball-grow-20260619.gif` keeps the previous generated review animation.
 
